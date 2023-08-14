@@ -30,6 +30,9 @@ import {useState} from 'react';
 
 function App() {
   const [count ,setCount] = useState(0);
+  const [show ,setShow] = useState(true);
+  const [tasks ,setTasks] = useState([{id:1,isCompleted:true,name:'first leasson'},
+  {id:2,isCompleted:false,name:'first leasson'},{id:3,isCompleted:true,name:'first leasson'}]);
 
   const userName = 'thilini';
   function handleAdd() {
@@ -43,6 +46,11 @@ function App() {
   function handleReSet() {
     setCount(0);
   }
+  function handleDelete(id)
+  {
+    console.log(id);
+    setTasks(tasks.filter(task=>task.id!=id));
+  }
 
   return (
     <div className="App">
@@ -52,6 +60,26 @@ function App() {
         {/* <button onClick={()=>setCount(count+1)} className="add">ADD</button> */}
         <button onClick={handleSub}className="sub">SUBSTRACT</button>
         <button onClick={handleReSet}className="reSet">RESET</button>
+      </div>
+      <div>
+        <h1>Task Lists</h1>
+        <ul>
+          <button onClick={()=>setShow(!show)}>Toggle</button>
+          {show && tasks.map((task,index)=>(
+            <li key={task.id} className={task.isCompleted?"completed":"inCompleted"}>
+              <span>{task.id} - {task.name}</span>
+              <button onClick={()=>handleDelete(task.id)}>Delete</button>
+            </li>
+
+          ))}
+          {/* {tasks.map((task,index)=>(
+            <li key={task.id}>
+              <span>{task.id} - {task.name}</span>
+              <button onClick={()=>handleDelete(task.id)}>Delete</button>
+            </li>
+
+          ))} */}
+        </ul>
       </div>
     </div>
     // <div>
