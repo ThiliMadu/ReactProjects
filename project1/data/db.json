@@ -1,0 +1,27 @@
+{
+    "products":[{
+        "id" : 1001,
+        "name" : "Basics to React",
+        "price":30,
+        "in_stock":true
+    },
+    {
+        "id" : 1002,
+        "name" : "Basics to React1",
+        "price":40,
+        "in_stock":false
+    },
+    {
+        "id" : 1003,
+        "name" : "Basics to React2",
+        "price":50,
+        "in_stock":true
+    },
+    {
+        "id" : 1004,
+        "name" : "Basics to React3",
+        "price":60,
+        "in_stock":false
+    }
+]
+}
